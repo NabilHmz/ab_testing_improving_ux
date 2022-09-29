@@ -23,7 +23,7 @@ Below the library picture there is a search bar and three big items: "Find", "Re
 
 The way to measure how each one of the three categories perform is by click-through rate (CTR), a common term in Online Marketing which typically describes the number of clicks an ad receives divided by the number of times the ad is shown. Here, click-through rate is measured as the number of clicks on each item divided by the total number of visits on the website. The report from the team analysing the website shows the specific numbers and explains how they reacted to them:
 
-        During the sample period from April 3, 2013 - April 10, 2013, which included 10,819 visits to the library homepage, there was a large disparity among the three main content categories. The click-through rate for Find was 35%, Request was 6%, and Interact was 2%. This observation prompted a question: "Why are Interact clicks so low?" At this time the content beneath Interact included links to Reference Services, Instruction Services, Subject Liaisons, Writing Center, About, Staff Directory, Library FAQ, Give to the Library, and Floor Maps. The library's web committee surmised that introducing this category with the abstract term "Interact" added difficulty and confusion for users trying to navigate into the library website homepage. Four different category titles were then proposed as variations to be tested: Connect, Learn, Help, and Services.
+During the sample period from April 3, 2013 - April 10, 2013, which included 10,819 visits to the library homepage, there was a large disparity among the three main content categories. The click-through rate for Find was 35%, Request was 6%, and Interact was 2%. This observation prompted a question: "Why are Interact clicks so low?" At this time the content beneath Interact included links to Reference Services, Instruction Services, Subject Liaisons, Writing Center, About, Staff Directory, Library FAQ, Give to the Library, and Floor Maps. The library's web committee surmised that introducing this category with the abstract term "Interact" added difficulty and confusion for users trying to navigate into the library website homepage. Four different category titles were then proposed as variations to be tested: Connect, Learn, Help, and Services.
 
 In an A/B Test, one of the tasks that usually belongs to the UX team is to perform user research and develop a new version of the website element that needs to be tested. The team had conversations with a few students and asked the following questions:
 
@@ -95,7 +95,6 @@ I Explore the data and tackle these questions:
 
 Next, I perform the significance test that will tell us whether the results are statistically significant.
 
-
 ## Performing a Chi-square Test
 
 While exploring the data from the different versions of the website, I have discovered that they had strong differences in click-through rates. Those rates can be calculated by simply dividing the clicks that each element of interest got (the elements "Interact", "Learn", "Help"...) by the overall number of visits on each page:
@@ -113,8 +112,8 @@ By going back to the original counts that produce these rates, a contingency tab
 
 This is how data should be shaped so that we can perform a chi-square test using thechi2_contingency function from scipy, and finally see whether the results are significant. In other words, whether the values on the rows ("Click" or "No-click") depend on the values on the columns ("Interact", "Connect", "Learn", "Help", "Services").
 
-`from scipy import stats
-chisq, pvalue, df, expected = stats.chi2_contingency(your_contingency_table)`
+`from scipy import stats`
+`chisq, pvalue, df, expected = stats.chi2_contingency(your_contingency_table)`
 
 For a confidence level of 90%, the significance level is 1 - 0.9 = 0.1. So, I check whether the p-value is smaller than 0.1 or not. If the p-value is smaller than the significance level, it will mean that the Null Hypothesis is rejected, the clicks indeed depend on the version of the website. But, does this tell the real winner? Not yet! This just tells that some versions indeed perform better than others. We can be sure that the best version (Services) performs better than the worst one (Interact), but we cannot be certain that the differences between "Services" and "Connect" or "Learn" are significant.
 
