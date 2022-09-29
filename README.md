@@ -112,8 +112,8 @@ By going back to the original counts that produce these rates, a contingency tab
 
 This is how data should be shaped so that we can perform a chi-square test using thechi2_contingency function from scipy, and finally see whether the results are significant. In other words, whether the values on the rows ("Click" or "No-click") depend on the values on the columns ("Interact", "Connect", "Learn", "Help", "Services").
 
-`from scipy import stats`
-`chisq, pvalue, df, expected = stats.chi2_contingency(your_contingency_table)`
+`from scipy import stats \n
+chisq, pvalue, df, expected = stats.chi2_contingency(your_contingency_table)`
 
 For a confidence level of 90%, the significance level is 1 - 0.9 = 0.1. So, I check whether the p-value is smaller than 0.1 or not. If the p-value is smaller than the significance level, it will mean that the Null Hypothesis is rejected, the clicks indeed depend on the version of the website. But, does this tell the real winner? Not yet! This just tells that some versions indeed perform better than others. We can be sure that the best version (Services) performs better than the worst one (Interact), but we cannot be certain that the differences between "Services" and "Connect" or "Learn" are significant.
 
