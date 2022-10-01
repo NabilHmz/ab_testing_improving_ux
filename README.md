@@ -122,5 +122,5 @@ One possible approach to solve this is to narrow down the candidates: simply kic
 
 ![Screenshot](Screenshot-2021-08-13-at-14.32.33-1536x469.png)
 
-The process is repeat while the p-value remains below the significance level (0.1).
+The process is repeated while the p-value remains below the significance level (0.1).
 
