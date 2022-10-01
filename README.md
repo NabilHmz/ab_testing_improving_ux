@@ -1,4 +1,4 @@
-# A/B Testing: Improving UX Experience
+# A/B Testing: Improving UX
 
 In an A/B test, we compare the performance of two or more versions of a site. When designing the experiment, several questions can emerge.
 
